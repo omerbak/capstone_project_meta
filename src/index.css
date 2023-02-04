@@ -31,6 +31,7 @@ img, video, svg, picture{
     --font-size-h3: 26px;
     --font-size-h4: 20px;
     --font-body: 18px;
+    --section-padding: 50px;
 }
 /* Mobile screens*/
 .container{
@@ -161,8 +162,8 @@ nav ul li.active{
 /* Hero Section */
 .hero-section{
   background-color: var(--primay-color-1);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 .hero-section .container{
   display: flex;
@@ -235,8 +236,8 @@ nav ul li.active{
 /* End Hero Section */
 /* Specials Section */
 .specials{
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 .top-elements{
   display: flex;
@@ -336,8 +337,8 @@ nav ul li.active{
 /* Testimonial */
 .testimonials{
   background-color: var(--primay-color-1);
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 .testimonials .testimonials-headline{
   text-align: center;
@@ -359,6 +360,8 @@ nav ul li.active{
 .cus-cards-box .cus-card{
   background-color: var(--accent-color-1);
   padding: 15px;
+  border-radius: 15px;
+  box-shadow: 2px 2px 0px rgb(56, 56, 56);
 }
 .cus-card .cus-rating{
   font-size: var(--font-size-h3);
@@ -402,8 +405,8 @@ nav ul li.active{
 /* End Testimonial */
 /* Chicago Component*/
 .chicago{
-  padding-top: 40px;
-  padding-bottom: 40px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 .chicago .container{
   display: flex;
@@ -495,8 +498,8 @@ nav ul li.active{
 /* Footer */
 footer{
   background-color: var(--accent-color-1);
-  padding-top: 50px;
-  padding-bottom: 50px;
+  padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 footer .container{
   display: flex;
@@ -604,7 +607,7 @@ footer .container div ul li:hover{
 }
 /*  End Form Steps component */
 .form-section{
-  margin-bottom: 50px;
+  margin-bottom: var(--section-padding);
 }
 .form-box{
   max-width: 600px;
@@ -679,6 +682,10 @@ button:disabled{
 }
 .btns-box .btn:first-child{
   margin-right: 20px;
+}
+.form-error{
+  color: red;
+  min-height:20px;
 }
 .thank-message{
   font-size: var(--font-size-h3);

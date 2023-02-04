@@ -1,9 +1,15 @@
 import React from 'react'
 import { useFormik } from 'formik'
+import * as yup from "yup";
 
 const Reservation_info = ({next , data}) => {
     const formik = useFormik({
         initialValues: data,
+        validationSchema: yup.object({
+            date: yup.date().required("Date of reservation is required"),
+            time: yup.string().required("Time of reservation is required"),
+            nb_guests: yup.number().min(1, "Minmum number of guests is 1").required("number of guests is required"),
+        }),
         onSubmit: (values) => {
             next(values);
         }
@@ -16,21 +22,27 @@ const Reservation_info = ({next , data}) => {
             <input type="date" id='date' name='date'
                 value={formik.values.date}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
             />
+             <p className='form-error'>{formik.touched["date"] && formik.errors["date"] && formik.errors["date"]}</p>
         </div>
         <div className="input-field time">
             <label htmlFor="time">Time</label>
             <input type="time" id='time' name='time' 
                 value={formik.values.time}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
             />
+             <p className='form-error'>{formik.touched["time"] && formik.errors["time"] && formik.errors["time"]}</p>
         </div>
         <div className="input-field guests">
             <label htmlFor="nb_guests">Number Of Guests</label>
             <input type="number" id='nb_guests' name='nb_guests' min="1" max="10" 
                 value={formik.values.nb_guests}
                 onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
             />
+            <p className='form-error'>{formik.touched["nb_guests"] && formik.errors["nb_guests"] && formik.errors["nb_guests"]}</p>
         </div>
         <div className="input-field occaison">
             <label htmlFor="occasion">Occaison</label>
