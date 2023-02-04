@@ -90,6 +90,10 @@ nav .container{
 }
 .brand-logo{
   width: 120px;
+  cursor: pointer;
+}
+.brand-logo img{
+  width: 100%;
 }
 .hamberger-menu{
   font-size: 30px;
@@ -245,31 +249,44 @@ nav ul li.active{
   color: var(--accent-color-2);
 }
 .cards-box{
-  display: flex;
+ /*  display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 25px;
-
+  gap: 25px; */
+  display: flex;
+  gap: 50px;
+  overflow-X: scroll;
+  cursor: grab;
+  padding: 20px;
+  scroll-behavior: smooth;
+  transition: background-color 0.2s;
+}
+.cards-box.scroll-active{
+  background-color: rgba(0, 0, 0,0.1);
+  cursor: grabbing;
 }
 .cards-box .card{
-  max-width: 300px;
+  min-width: 300px;
   background-color: var(--accent-color-1);
   overflow: hidden;
   border-radius: 15px 15px 0 0;
+  transition: transform 0.3s;
 }
+
 @media (min-width: 768px){
   .cards-box{
-    flex-direction: row;
     gap: 20px;
   }
-  .cards-box .card{
-    flex: 1;
-    max-width: initial;
-  }
+ 
 }
 @media (min-width: 992px){
-  .cards-box{
+.cards-box{
     gap: 35px;
+    overflow: hidden;
+    position: relative;
+  }
+  .cards-box .card:hover{
+    transform: scale(1.05) translateY( 1px);
   }
 }
 .cards-box .card img{
@@ -475,3 +492,205 @@ nav ul li.active{
   }
 }
 /* End Chicago Component*/
+/* Footer */
+footer{
+  background-color: var(--accent-color-1);
+  padding-top: 50px;
+  padding-bottom: 50px;
+}
+footer .container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+footer .container div h4{
+  color: var(--primay-color-1);
+  font-size: var(--font-size-h4);
+}
+footer .container div ul{
+  list-style: none;
+  font-size: var(--font-body);
+  color: var(--accent-color-2);
+}
+footer .container div ul li{
+  cursor: pointer;
+  transition: color 0.3s;
+  width: fit-content;
+}
+footer .container div ul li:hover{
+  color: var(--secondary-color-1)
+}
+.socila-links{
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+.react-icon{
+  font-size: 20px;
+}
+.booking{
+  flex: 1;
+}
+/* End Footer */
+
+/* Form */
+
+/* Form Steps component */
+.line{
+  width: 80%;
+  max-width: 700px;
+  height: 25px;
+  position: relative;
+  margin-top: 40px;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 30px;
+}
+
+.line::before{
+  position: absolute;
+  content: "";
+  height: 100%;
+  background-color: #495E57;
+  transition: width 0.4s;
+}
+.line.step1::before{
+  width: 0%;
+}
+.line.step2::before{
+  width: 50%;
+}
+.line.step3::before{
+  width: 100%;
+}
+
+.line div{
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  background-color: gray;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  font-size: 24px;
+  font-weight: var(--fw-bold);
+  color: white;
+  transition: background-color 0.2s 0.3s;
+}
+.line .first-cir{
+  left: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.line .second-cir{
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+.line .third-cir{
+  right: -10px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.line:is(.step1, .step2, .step3) .first-cir{
+  background-color: var(--primay-color-1);
+}
+.line:is(.step2, .step3) .second-cir{
+  background-color: var(--primay-color-1);
+}
+.line.step3 .third-cir{
+  background-color: var(--primay-color-1);
+}
+/*  End Form Steps component */
+.form-section{
+  margin-bottom: 50px;
+}
+.form-box{
+  max-width: 600px;
+  margin-left: auto;
+  margin-right: auto;
+}
+:is(form, .thank-message){
+  background-color: var(--accent-color-1);
+  padding: 20px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+  box-shadow: 0 0 3px var(--primay-color-1);
+  min-height: 550px;
+}
+form .form-title{
+  font-size: var(--font-size-h2);
+  color: var(--primay-color-1);
+  margin-bottom: 10px;
+}
+form .input-field{
+  margin-bottom: 15px;
+  width: 100%;
+  max-width: 400px;
+}
+form .input-field :is(input, select, textarea){
+  display: block;
+  width: 100%;
+  padding: 7px ;
+  outline: none;
+  border: 2px solid transparent;
+  color: var(--accent-color-2);
+}
+option{
+  padding: 5px;
+}
+form .input-field label{
+  font-size: var(--font-size-h4);
+  color:#5e6a66;
+}
+
+form .input-field input:focus{
+  border-bottom-color: var(--primay-color-1);
+}
+.btns-box{
+  display: flex;
+  margin-top: 20px;
+  margin-top: auto;
+}
+button:disabled{
+  background-color: gray !important;
+}
+.btn{
+  border: 2px solid transparent;
+  outline: none;
+  background-color: var(--primay-color-1);
+  padding: 10px 20px;
+  color: white;
+  font-weight: var(--fw-bold);
+  letter-spacing: 1.2px;
+  font-size: 16px;
+  border-radius: 16px;
+  cursor: pointer;
+  display: block;
+  width: 150px;
+  transition: background-color 0.3s;
+}
+.btn:hover{
+  background-color: var(--secondary-color-1);
+ 
+}
+.btns-box .btn:first-child{
+  margin-right: 20px;
+}
+.thank-message{
+  font-size: var(--font-size-h3);
+  color: var(--primay-color-1);
+  min-height: 400px;
+ display: flex;
+ justify-content: center;
+ align-items: center;
+}
+.back-home{
+  text-decoration: none;
+  margin-top: auto;
+  text-align: center;
+}
+/* End Form */

@@ -11,7 +11,7 @@ const Hero = () => {
             <h1>Little Lemon</h1>
             <h4>Chicago</h4>
             <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Fugit alias hic maxime assumenda, aut voluptate doloribus quae voluptates ab mollitia.</p>
-            <Link className='cta-btn'>Rserve Table</Link>
+            <Link to="/ReserveTable" className='cta-btn'>Rserve Table</Link>
         </div>
         <div className="hero-image">
           <img src={heroImgae} alt="resturant's food sample" />
