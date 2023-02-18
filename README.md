@@ -5,3 +5,4 @@
 - animations on meals menu
 - mdoify card feedback layout
 - make the project more component based like component for a card and component for client review.
+- add more effects on form field error
