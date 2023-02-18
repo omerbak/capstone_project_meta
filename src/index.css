@@ -532,8 +532,22 @@ footer .container div ul li:hover{
 .react-icon{
   font-size: 20px;
 }
+/* Booking section */
 .booking{
   flex: 1;
+  background: url(./icons_assets/bookings_bg.jpg);
+  background-size: cover;
+  background-position: center;
+  position: relative;
+}
+.booking::after{
+  content: "";
+  position: absolute;
+  background-color: rgb(0, 0, 0, 0.4);
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 /* End Footer */
 
@@ -608,11 +622,14 @@ footer .container div ul li:hover{
 /*  End Form Steps component */
 .form-section{
   margin-bottom: var(--section-padding);
+  position: relative;
+  z-index: 30;
 }
 .form-box{
   max-width: 600px;
   margin-left: auto;
   margin-right: auto;
+  margin-top: 30px;
 }
 :is(form, .thank-message){
   background-color: var(--accent-color-1);
@@ -630,7 +647,7 @@ form .form-title{
   margin-bottom: 10px;
 }
 form .input-field{
-  margin-bottom: 15px;
+  margin-bottom: 5px;
   width: 100%;
   max-width: 400px;
 }
@@ -699,5 +716,10 @@ button:disabled{
   text-decoration: none;
   margin-top: auto;
   text-align: center;
+}
+.booking-form-h2{
+  font-size: var(--font-size-h2);
+  text-align: center;
+  color: var(--primay-color-2);
 }
 /* End Form */

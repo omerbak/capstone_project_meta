@@ -6,7 +6,7 @@ import ThankMessage from './form_components/ThankMessage';
 import { useState } from 'react';
 
 
-const Form = () => {
+const BookingForm = ({availableTimes, dispatch}) => {
     const [step, setStep] = useState(1);
     const [formData, setFormData] = useState({
         firstName: "",
@@ -34,7 +34,7 @@ const Form = () => {
 
     const formStep =
     [
-        <Reservation_info next={handleNext} data={formData}/>,
+        <Reservation_info next={handleNext} data={formData} availableTimes={availableTimes} dispatch={dispatch}/>,
         <Personal__info next={handleNext} previous={handlePrevious} data={formData}/>,
         <ThankMessage />
     ]
@@ -42,7 +42,8 @@ const Form = () => {
     return (
         <div className='form-section'>
             <div className="container">
-                <div className="form-box">
+                <div data-testid="form-box" className="form-box">
+                    <h2 className='booking-form-h2'>Reserve Now</h2>
                     <Steps step={step}/>
                     {formStep[step-1]}
                 </div>
@@ -51,15 +52,15 @@ const Form = () => {
     )
 }
 
-export default Form
+export default BookingForm;
 
 
  {/* {step === 1 || step === 2?
-                        <form onSubmit={handleSubmit}>
+                        <BookingBookingForm.js.js onSubmit={handleSubmit}>
                             <Reservation_info step={step}/>
                             <Personal__info step={step}/>
-                            <Form_buttons step={step} setstep={setStep}/>
-                        </form>
+                            <BookingForm.js_buttons step={step} setstep={setStep}/>
+                        </BookingBookingForm.js.js>
                         :
                         <div className="thank-message">
                             <p>Thank you For Your Reservation</p>

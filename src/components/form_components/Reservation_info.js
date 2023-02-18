@@ -1,8 +1,9 @@
 import React from 'react'
+import AvailableTimes from './AvailableTimes';
 import { useFormik } from 'formik'
 import * as yup from "yup";
 
-const Reservation_info = ({next , data}) => {
+const Reservation_info = ({next , data, availableTimes, dispatch}) => {
     const formik = useFormik({
         initialValues: data,
         validationSchema: yup.object({
@@ -14,6 +15,7 @@ const Reservation_info = ({next , data}) => {
             next(values);
         }
     })
+
   return (
     <form onSubmit={formik.handleSubmit}>
         <h2 className='form-title'>Reservation Details</h2>
@@ -21,19 +23,21 @@ const Reservation_info = ({next , data}) => {
             <label htmlFor="date">Date</label>
             <input type="date" id='date' name='date'
                 value={formik.values.date}
-                onChange={formik.handleChange}
+                onChange={(e) =>{
+                    formik.handleChange(e);
+                    dispatch({payload:new Date(e.target.value)}) 
+                    console.log("formik",typeof (new Date(e.target.value)))
+                    console.log("formik2", new Date().getDate())
+                }
+                }
                 onBlur={formik.handleBlur}
             />
-             <p className='form-error'>{formik.touched["date"] && formik.errors["date"] && formik.errors["date"]}</p>
+            <p className='form-error'>{formik.touched["date"] && formik.errors["date"] && formik.errors["date"]}</p>
         </div>
         <div className="input-field time">
             <label htmlFor="time">Time</label>
-            <input type="time" id='time' name='time' 
-                value={formik.values.time}
-                onChange={formik.handleChange}
-                onBlur={formik.handleBlur}
-            />
-             <p className='form-error'>{formik.touched["time"] && formik.errors["time"] && formik.errors["time"]}</p>
+            <AvailableTimes formik={formik} availableTimes={availableTimes}/>
+            <p className='form-error'>{formik.touched["time"] && formik.errors["time"] && formik.errors["time"]}</p>
         </div>
         <div className="input-field guests">
             <label htmlFor="nb_guests">Number Of Guests</label>

@@ -1,9 +1,9 @@
 import React from 'react'
-import Form from './Form'
-const BookingPage = () => {
+import BookingForm from './BookingForm'
+const BookingPage = ({availableTimes, dispatch}) => {
   return (
     <div className='booking'>
-      <Form />
+      <BookingForm availableTimes={availableTimes} dispatch={dispatch}/>
     </div>
   )
 }
