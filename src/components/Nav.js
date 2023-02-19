@@ -24,7 +24,7 @@ const Nav = () => {
             <li className='active'>Home</li>
             <li>About</li>
             <li>Menu</li>
-            <li>Reservations</li>
+            <li><Link className='link' to="/booking">Reservations</Link></li>
             <li>Order Online</li>
             <li>Login</li>
           </ul>

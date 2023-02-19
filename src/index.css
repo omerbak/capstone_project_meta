@@ -132,6 +132,10 @@ nav ul li{
   border-bottom: 2px solid transparent;
   font-size: var(--font-size-h4);
 }
+.link{
+  text-decoration: none;
+  color: var(--accent-color-2);
+}
 nav ul li:hover{
   border-color: var(--primay-color-2);
   color: var(--primay-color-2);
@@ -667,8 +671,11 @@ form .input-field label{
   color:#5e6a66;
 }
 
-form .input-field input:focus{
+form .input-field :is(input, textarea):focus{
   border-bottom-color: var(--primay-color-1);
+}
+form .input-field :is(input, select).input-error{
+  border-bottom-color: red;
 }
 .btns-box{
   display: flex;
@@ -706,15 +713,23 @@ button:disabled{
 }
 .thank-message{
   font-size: var(--font-size-h3);
-  color: var(--primay-color-1);
+  color: var(--accent-color-2);
   min-height: 400px;
- display: flex;
- justify-content: center;
- align-items: center;
+ display: grid;
+ grid-template-columns: 1fr;
+ justify-items: center;
+}
+.thank-message p{
+  text-align: center;
+  margin-bottom: 10px;
+}
+.thank-message .thank-highlight{
+  font-weight: var(--fw-bold);
+  color: var(--primay-color-2);
 }
 .back-home{
   text-decoration: none;
-  margin-top: auto;
+  /* margin-top: auto; */
   text-align: center;
 }
 .booking-form-h2{

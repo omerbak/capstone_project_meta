@@ -31,6 +31,7 @@ const Reservation_info = ({next , data, availableTimes, dispatch}) => {
                 }
                 }
                 onBlur={formik.handleBlur}
+                className={formik.touched["date"] && formik.errors["date"]&& "input-error"}
             />
             <p className='form-error'>{formik.touched["date"] && formik.errors["date"] && formik.errors["date"]}</p>
         </div>
@@ -45,6 +46,7 @@ const Reservation_info = ({next , data, availableTimes, dispatch}) => {
                 value={formik.values.nb_guests}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
+                className={formik.touched["nb_guests"] && formik.errors["nb_guests"]&& "input-error"}
             />
             <p className='form-error'>{formik.touched["nb_guests"] && formik.errors["nb_guests"] && formik.errors["nb_guests"]}</p>
         </div>
@@ -53,6 +55,7 @@ const Reservation_info = ({next , data, availableTimes, dispatch}) => {
             <select name="occasion" id="occasion" 
             value={formik.values.occasion}
             onChange={formik.handleChange}
+            className={formik.touched["occasion"] && formik.errors["occasion"]&& "input-error"}
             >
                 <option value="">-- Select Occaison --</option>
                 <option value="anniversary">Anniversary</option>

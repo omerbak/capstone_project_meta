@@ -9,7 +9,7 @@ const AvailableTimes = ({formik, availableTimes}) => {
                     <>
                     <option value="">-- Select Time --</option>
                     {availableTimes.map((elem, index) => (
-                        <option key={index} value={elem}>{elem}</option>
+                        <option key={index} value={elem} >{elem}</option>
                 ))}
                     </>
 
@@ -22,7 +22,9 @@ const AvailableTimes = ({formik, availableTimes}) => {
         <select id="time" name='time'
             value={formik.values.time}
             onChange={formik.handleChange}
-            onBlur={formik.handleBlur}>
+            onBlur={formik.handleBlur}
+            className={formik.touched["time"] && formik.errors["time"]&& "input-error"}
+            >
                 {displayOptions()}
         </select>
     )

@@ -32,15 +32,17 @@ const Personal__info = ({next, previous, data}) => {
                     value={values.firstName}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className={touched["firstName"] && errors["firstName"]&& "input-error"}
                 />
                 <p className='form-error'>{touched["firstName"] && errors["firstName"] && errors["firstName"]}</p>
             </div>
             <div className="input-field name">
                 <label htmlFor="lastName">Last Name</label>
-                <input  type="text" id='lasntName' name='lastName'
+                <input  type="text" id='lastName' name='lastName'
                     value={values.lastName}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className={touched["lastName"] && errors["lastName"]&& "input-error"}
                 />
                 <p className='form-error'>{touched["lastName"] && errors["lastName"] && errors["lastName"]}</p>
             </div>
@@ -50,6 +52,7 @@ const Personal__info = ({next, previous, data}) => {
                     value={values.email}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className={touched["email"] && errors["email"]&& "input-error"}
                 />
                 <p className='form-error'>{touched["email"] && errors["email"] && errors["email"]}</p>
             </div>
@@ -59,6 +62,7 @@ const Personal__info = ({next, previous, data}) => {
                     value={values.phone}
                     onChange={handleChange}
                     onBlur={handleBlur}
+                    className={touched["phone"] && errors["phone"]&& "input-error"}
                 />
                 <p className='form-error'>{touched["phone"] && errors["phone"] && errors["phone"]}</p>
             </div>

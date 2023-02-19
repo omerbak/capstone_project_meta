@@ -36,7 +36,7 @@ const BookingForm = ({availableTimes, dispatch}) => {
     [
         <Reservation_info next={handleNext} data={formData} availableTimes={availableTimes} dispatch={dispatch}/>,
         <Personal__info next={handleNext} previous={handlePrevious} data={formData}/>,
-        <ThankMessage />
+        <ThankMessage formData={formData}/>
     ]
 
     return (
@@ -54,15 +54,3 @@ const BookingForm = ({availableTimes, dispatch}) => {
 
 export default BookingForm;
 
-
- {/* {step === 1 || step === 2?
-                        <BookingBookingForm.js.js onSubmit={handleSubmit}>
-                            <Reservation_info step={step}/>
-                            <Personal__info step={step}/>
-                            <BookingForm.js_buttons step={step} setstep={setStep}/>
-                        </BookingBookingForm.js.js>
-                        :
-                        <div className="thank-message">
-                            <p>Thank you For Your Reservation</p>
-                        </div>
-                } */}
