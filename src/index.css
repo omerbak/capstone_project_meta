@@ -134,13 +134,15 @@ nav ul li{
 }
 .link{
   text-decoration: none;
-  color: var(--accent-color-2);
+  border-bottom: 2px solid transparent;
+  color: inherit;
+
 }
 nav ul li:hover{
   border-color: var(--primay-color-2);
   color: var(--primay-color-2);
 }
-nav ul li.active{
+ .link.active{
   border-color: var(--primay-color-2);
   color: var(--primay-color-2);
 }
